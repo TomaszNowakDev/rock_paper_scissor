@@ -1,12 +1,59 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
+    <title>Rock Paper Scissors</title>
+    <meta name="description" content="Simple rock paper scissors game written in javascript" >
+    <meta name="keywords" content="HTML, CSS, JavaScript, rock, paper, scissors, game, js game">
+    <meta name="author" content="Tomasz Nowak">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+		<section>
+			<div class="board">
+                <div class="score">
+                    <div id="result">Result:</div>
+                    <div id="user">Player:  0</div>
+                    <div id="computer">Computer:  0</div>
+                    <div style="clear: both"></div>
+                </div>
+                <div id="game">
+                    <div class="picks">
+                        <div id="user-choice"><img src="images/mark.png" alt="user choice image"></div>
+                        <div id="comp-choice"><img src="images/mark.png" alt="computer choice image"></div>
+                    </div>
+                    <div style="clear: left"></div>
+                    <p id="winner"><strong>Get Ready</strong></p>
+                    <div id="selection">
+                        <figure id="rock">
+                            <img src="images/ro.png" alt="rock">
+                        </figure>
+                        <figure id="paper">
+                            <img src="images/pa.png" alt="paper">
+                        </figure>
+                        <figure id="scissors">
+                            <img src="images/sc.png" alt="scissors">
+                        </figure>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div id="again"></div>
+                </div>
+			</div>
+
+		</section>
+
+	</main>
+    <footer>
+        <p>Rock Paper Scissors &copy;</p>
+     </footer>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="app.js"></script>
 
 </body>
 </html>
