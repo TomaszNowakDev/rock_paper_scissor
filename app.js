@@ -15,5 +15,11 @@ if(paper){
 }
 if(scissors){
     scissors.addEventListener('click',() => round("scissors"));
+}
 
+// random choice for computer, returning string
+function comp_move() {
+    const choices = ["rock", "paper", "scissors"]
+    let computer_rand = Math.floor(Math.random() * 3);
+    return choices[computer_rand];
 }
