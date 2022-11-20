@@ -24,44 +24,55 @@ function comp_move() {
     return choices[computer_rand];
 }
 
+// showing each game winner and add points
+function point(input) {
+    if(input === "comp"){
+        document.getElementById("winner").innerText = "Computer scores a point!";
+        scoreComp++;
+        $('#computer').html('Computer:  '+ scoreComp);
+        $('#comp-choice').css("background", "#09ec7f")
+        $('#user-choice').css("background", "red");
+    }
+    else {
+        document.getElementById("winner").innerText = "You score a point!";
+        scoreUser++;
+        $('#user').html("Player:  " + scoreUser);
+        $('#user-choice').css("background", "#09ec7f");
+        $('#comp-choice').css("background", "red");
+    }
+}
+
+// full round to 10 winnings
 // round logic of the game
 function round(user_input) {
 
     document.getElementById("winner").innerText = "Select symbol!";
+    $('#user-choice').html('<img src="images/' + user_input + '.png"></img>');
     let comp_choice = comp_move();
+    $('#comp-choice').html('<img src="images/' + comp_choice + '.png"></img>');
 
     if( user_input === comp_choice) {
         document.getElementById("winner").innerText = "We Have a Tie!";
+        $('#comp-choice').css("background", "yellow")
+        $('#user-choice').css("background", "yellow");
     }
     else if( user_input === "rock" && comp_choice === "scissors"){
-        scoreUser++;
-        document.getElementById("winner").innerText = "You score a point!";
-        $('#user').html("Player:  " + scoreUser);
+        point("user");
     }
     else if( user_input === "rock" && comp_choice === "paper"){
-        scoreComp++;
-         document.getElementById("winner").innerText = "Computer scores a point!";
-         $('#computer').html('Computer:  '+ scoreComp);
+        point("comp");
     }
     else if( user_input === "paper" && comp_choice === "scissors"){
-        scoreComp++;
-         document.getElementById("winner").innerText = "Computer scores a point!";
-         $('#computer').html('Computer:  '+ scoreComp);
+        point("comp");
     }
     else if( user_input === "paper" && comp_choice === "rock"){
-        scoreUser++;
-        document.getElementById("winner").innerText = "You score a point!";
-        $('#user').html("Player:  " + scoreUser);
+        point("user");
     }
     else if( user_input === "scissors" && comp_choice === "paper"){
-        scoreUser++;
-        document.getElementById("winner").innerText = "You score a point!";
-        $('#user').html("Player:  " + scoreUser);
+        point("user");
     }
     else if( user_input === "scissors" && comp_choice === "rock"){
-        scoreComp++;
-         document.getElementById("winner").innerText = "Computer scores a point!";
-         $('#computer').html('Computer:  '+ scoreComp);
+        point("comp");
     }
     finish(scoreUser,scoreComp);
 }
