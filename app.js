@@ -23,3 +23,43 @@ function comp_move() {
     let computer_rand = Math.floor(Math.random() * 3);
     return choices[computer_rand];
 }
+
+function round(user_input) {
+
+    document.getElementById("winner").innerText = "Select symbol!";
+    let comp_choice = comp_move();
+
+    if( user_input === comp_choice) {
+        document.getElementById("winner").innerText = "We Have a Tie!";
+    }
+    else if( user_input === "rock" && comp_choice === "scissors"){
+        scoreUser++;
+        document.getElementById("winner").innerText = "You score a point!";
+        $('#user').html("Player:  " + scoreUser);
+    }
+    else if( user_input === "rock" && comp_choice === "paper"){
+        scoreComp++;
+         document.getElementById("winner").innerText = "Computer scores a point!";
+         $('#computer').html('Computer:  '+ scoreComp);
+    }
+    else if( user_input === "paper" && comp_choice === "scissors"){
+        scoreComp++;
+         document.getElementById("winner").innerText = "Computer scores a point!";
+         $('#computer').html('Computer:  '+ scoreComp);
+    }
+    else if( user_input === "paper" && comp_choice === "rock"){
+        scoreUser++;
+        document.getElementById("winner").innerText = "You score a point!";
+        $('#user').html("Player:  " + scoreUser);
+    }
+    else if( user_input === "scissors" && comp_choice === "paper"){
+        scoreUser++;
+        document.getElementById("winner").innerText = "You score a point!";
+        $('#user').html("Player:  " + scoreUser);
+    }
+    else if( user_input === "scissors" && comp_choice === "rock"){
+        scoreComp++;
+         document.getElementById("winner").innerText = "Computer scores a point!";
+         $('#computer').html('Computer:  '+ scoreComp);
+    }
+}
