@@ -24,6 +24,7 @@ function comp_move() {
     return choices[computer_rand];
 }
 
+// round logic of the game
 function round(user_input) {
 
     document.getElementById("winner").innerText = "Select symbol!";
@@ -61,5 +62,25 @@ function round(user_input) {
         scoreComp++;
          document.getElementById("winner").innerText = "Computer scores a point!";
          $('#computer').html('Computer:  '+ scoreComp);
+    }
+    finish(scoreUser,scoreComp);
+}
+
+// check if someone has 10 points
+function finish(sUser,sComp) {
+
+    if(sComp >= 10 || sUser >= 10) {
+
+        if (sUser >= 10){
+            $('#selection').html("<h1>You Win!</h1>");
+            $('#selection').css("background", "#09ec7f");
+        }
+        else {
+            $('#selection').html("<h1>The Computer Wins!</h1>");
+            $('#selection').css("background", "red");
+        }
+
+        $('#again').html("<p class=\"play-again\"><a href=\"index.html\"><strong>Play again?</strong></a></p>");
+        $('#selection').css("margin-top", "30px");
     }
 }
